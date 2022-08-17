@@ -3,6 +3,7 @@ import string, random
 class Jogo:
     def __init__(self):
         self.listaDePalavras = ['comunicacao', 'email', 'informacao', 'custos', 'estimativa','controle', 'tempo', 'entregar', 'cronograma']
+        self.lista_copia_palavras = self.listaDePalavras.copy()
 
     def gerarLetras(self):
         listaLetras = []
@@ -35,15 +36,17 @@ class Jogo:
         for k in novaLista:
             if len(k) > 1:
                 novaLista.remove(k)
-        print(len(novaLista))
-        print(novaLista)
-        return novaLista
+        return '[%s]' % ' '.join(map(str, novaLista))
 
+    def validaInputs(self, resposta):
+        if resposta in self.listaDePalavras:
+            self.lista_copia_palavras.remove(resposta)
+            return "Encontrou a palavra " + resposta
+        else:
+            return "Palavra não existe!!"
     
-
-
-
-
-j = Jogo()
-listaSemAspas = '[%s]' % ' '.join(map(str, j.splitaLista()))
-print(listaSemAspas)
+    def iniciar(self):
+        print(self.splitaLista())
+        while len(self.lista_copia_palavras) > 0:
+            print(self.validaInputs(input('Digite a palavra encontrada!')))
+        return "Fim de jogo!"
