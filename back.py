@@ -29,11 +29,14 @@ class Jogo:
                 for j in i:
                     listaOriginal.insert(contador, j)
 
+
         novaLista = list(reversed(listaOriginal))
+    
         for k in novaLista:
             if len(k) > 1:
                 novaLista.remove(k)
         print(len(novaLista))
+        print(novaLista)
         return novaLista
 
     
