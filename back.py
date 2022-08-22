@@ -7,9 +7,9 @@ class Jogo:
 
     def gerarLetras(self):
         listaLetras = []
-        for i in range(552):
+        for i in range(827):
             listaLetras.append(random.choice(string.ascii_letters).lower())
-        return listaLetras
+        return listaLetras 
 
     def gerarMatriz(self):
         gera = self.gerarLetras()
@@ -35,18 +35,18 @@ class Jogo:
     
         for k in novaLista:
             if len(k) > 1:
-                novaLista.remove(k)
+                novaLista.remove(k)        
         return '[%s]' % ' '.join(map(str, novaLista))
 
     def validaInputs(self, resposta):
         if resposta in self.listaDePalavras:
             self.lista_copia_palavras.remove(resposta)
-            return "Encontrou a palavra " + resposta
+            return "Encontrou a palavra " + resposta.upper()
         else:
             return "Palavra não existe!!"
     
     def iniciar(self):
         print(self.splitaLista())
         while len(self.lista_copia_palavras) > 0:
-            print(self.validaInputs(input('Digite a palavra encontrada!')))
+            print(self.validaInputs(input('Digite a palavra encontrada: ')))
         return "Fim de jogo!"
