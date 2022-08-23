@@ -47,6 +47,9 @@ class Jogo:
     
     def iniciar(self):
         print(self.splitaLista())
+        cont = 0
+        print('Você precisa encontrar 9 palavras!!!')
         while len(self.lista_copia_palavras) > 0:
-            print(self.validaInputs(input('Digite a palavra encontrada: ')))
-        return "Fim de jogo!"
+            cont += 1
+            print(self.validaInputs(input(f'Tentativa {cont} -> digite a palavra encontrada: ')))
+        return f"****** FIM DE JOGO, VOCÊ VENCEU EM {cont} TENTATIVAS! ******"
